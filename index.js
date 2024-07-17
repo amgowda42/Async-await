@@ -252,3 +252,40 @@ async function kitchen() {
 }
 
 kitchen() 
+
+
+//imple Example to Explain in interview both promise and async/await
+
+
+// Function that returns a Promise which resolves after 2 seconds
+
+let is_fetch = true;
+const fetchData = () =>{
+    return new Promise((resolve , reject) =>{
+  if(is_fetch){
+    setTimeout(() =>{
+        resolve("Data fetched successfully.")
+    }, 3000)
+  }else {
+    reject("Rejected")
+  }
+    })
+}
+
+// Async function that uses await to wait for the Promise to resolve
+const getData = async() =>{
+    try {
+        console.log("Data Fetching.....")
+      const result = await fetchData();
+      console.log(result);
+
+    }catch(e){
+        console.log("error", e)
+    }finally {
+        console.log("Thank you ")
+    }
+}
+
+
+getData()
+
